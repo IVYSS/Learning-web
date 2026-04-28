@@ -1,63 +1,96 @@
-import Image from "next/image";
+"use client";
+
+import {
+  buttonDataMock,
+  cardDataMock,
+  exploreDataMock,
+} from "@/src/api/mockDataHomepage";
+import Card from "@/src/components/Card/Card";
+import { ArrowRoundForwardIcon } from "@/src/components/icons/icon";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className=" bg-linear-to-t from-white to-green-4">
+      <main>
+        <div className=" px-6 gap-6  flex flex-col  items-center w-260.5 mx-auto py-6 ">
+          <div className="text-[40px] justify-center items-center text-center w-full font-bold font-nunito py-7">
+            Hello, What Do You Want To Learn?
+          </div>
+
+          <input
+            placeholder="Geeksforgeeks"
+            className="w-[776px] h-[66px] border rounded-xl p-2.5 border-black-5"
+            alt="/"
+            type="text"
+            about="text"
+            value={search}
+            onChange={(e) => {
+              e.preventDefault();
+              setSearch(e.target.value);
+              console.log(e.target.value);
+            }}
+          />
+
+          <div className="flex gap-[14px]  font-thin text-sm">
+            {buttonDataMock.map((button, key) => (
+              <Link
+                key={key}
+                href={button.src}
+                className="px-[8px] h-8 flex justify-center align-center rounded-sm border border-black-5 first:bg-green-2 first:text-white-4 pt-1 "
+              >
+                {button.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="w-full mt-7">
+            <p className="text-[24px] font-nunito font-bold mb-5">Explore</p>
+
+            <div className="grid grid-cols-2 gap-10.5">
+              {cardDataMock.map((cardData, key) => (
+                <Card headerText={cardData.headerText} key={key} isGuardian />
+              ))}
+            </div>
+          </div>
+
+          <Link
+            href="/"
+            className="w-full flex px-7.5 py-2.5 mx-50  font-nunito text-white content-between rounded-xl justify-between h-[105px] items-center bg-purple mt-[54px] mb-[42px]"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <p className="font-bold text-[32px]">
+              Interested in advertising with us?
+            </p>
+            <div className=" bg-white text-black text-[18px] font-thin py-[10px] px-[32px] rounded-sm flex justify-center items-center ">
+              Get in touch
+            </div>
+          </Link>
+
+          <div className="w-full">
+            <p className="text-[24px] font-nunito font-bold">Courses</p>
+          </div>
+
+          <div className="w-full">
+            <p className="text-[24px] font-nunito font-bold ">Must Explore</p>
+            <div className="grid grid-cols-4 gap-10 my-[18px]">
+              {exploreDataMock.map((title) => (
+                <div
+                  className="box grid-1 h-[104px] text-white rounded-xl bg-blue-2 font-bold text-[18px] px-[18px] py-[11px] justify-center"
+                  key={title}
+                >
+                  {title}
+                  <div className="flex  flex-col items-end justify-end w-full">
+                    <ArrowRoundForwardIcon />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
     </div>
