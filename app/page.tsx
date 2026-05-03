@@ -8,12 +8,10 @@ import {
 import Card from "@/src/components/Card/Card";
 import { ArrowRoundForwardIcon } from "@/src/components/icons/icon";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [search, setSearch] = useState("");
-
-  useEffect(() => {}, []);
 
   return (
     <div className=" bg-linear-to-t from-white to-green-4">
@@ -23,19 +21,17 @@ export default function Home() {
             Hello, What Do You Want To Learn?
           </div>
 
-          <input
+          {/* <input
             placeholder="Geeksforgeeks"
             className="w-[776px] h-[66px] border rounded-xl p-2.5 border-black-5"
-            alt="/"
             type="text"
-            about="text"
             value={search}
             onChange={(e) => {
               e.preventDefault();
               setSearch(e.target.value);
               console.log(e.target.value);
             }}
-          />
+          /> */}
 
           <div className="flex gap-[14px]  font-thin text-sm">
             {buttonDataMock.map((button, key) => (
@@ -54,7 +50,7 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-10.5">
               {cardDataMock.map((cardData, key) => (
-                <Card headerText={cardData.headerText} key={key} isGuardian />
+                <Card headerText={cardData.headerText} key={key} />
               ))}
             </div>
           </div>

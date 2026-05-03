@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,28 +15,28 @@ export function Navbar({ tab }: { tab: string[] }) {
             alt="logo"
           />
 
-          <input
+          {/* <input
             className="w-62 border rounded-3xl border-green-2 h-9.25 p-2.5"
             placeholder="Search.."
-          />
+          /> */}
         </div>
-        <ul className="flex flex-2 gap-10 pl-50">
-          <li>
+        <div className="flex flex-2 gap-10 pl-50">
+          <div>
             <p>Courses</p>
-          </li>
-          <li>
+          </div>
+          <div>
             <p>Tutorials</p>
-          </li>
-          <li>
+          </div>
+          <div>
             <p>Interview Prep</p>
-          </li>
-        </ul>
-        <ul className="flex-end flex gap-3 h-full  text-center justify-center items-center ">
-          <li className="rounded-4xl bg-white-3 w-9 h-9 p-2 text-black">i</li>
-          <li className="bg-black text-white rounded-md h-9.25 w-18.25  p-2 text-[14px]">
+          </div>
+        </div>
+        <div className="flex-end flex gap-3 h-full  text-center justify-center items-center ">
+          <div className="rounded-4xl bg-white-3 w-9 h-9 p-2 text-black">i</div>
+          <div className="bg-black text-white rounded-md h-9.25 w-18.25  p-2 text-[14px]">
             <Link href={"/login"}>Sign In</Link>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <div className="flex text-center justify-center text-[11px]">
         {tab.map((tab, id) => (

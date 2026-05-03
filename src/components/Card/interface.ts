@@ -7,5 +7,4 @@ export interface CardInterface {
   description?: string;
   textButton?: string;
   buttonIcon?: ReactNode;
-  isGuardian?: boolean;
 }
