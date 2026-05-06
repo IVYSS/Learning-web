@@ -9,14 +9,12 @@ export default function Card({
   headerText,
   textButton = "View more",
   buttonIcon = <ArrowRoundForwardIcon width="24" height="24" />,
-  isGuardian = false,
 }: CardInterface) {
   return (
     <div
       className={cn(
-        " group rounded-xl px-[15px] w-[500px] h-[200px] flex flex-col justify-center items-center  font-nunito  cursor-pointer",
+        " group rounded-xl px-[15px] w-[500px] h-[200px] flex flex-col justify-center items-center  font-nunito  cursor-pointer bg-amber-300",
         "group-last-of-type:hover:bg-white",
-        isGuardian && "bg-gradient-to-br from-[#3b5998] to-[99%]",
         className,
       )}
     >

@@ -50,9 +50,7 @@ export default function Home() {
           <input
             placeholder="Geeksforgeeks"
             className="w-[776px] h-[66px] border rounded-xl p-2.5 border-black-5"
-            alt="/"
             type="text"
-            about="text"
             value={search}
             onChange={(e) => {
               e.preventDefault();
@@ -79,7 +77,7 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-10.5">
               {cardDataMock.map((cardData, key) => (
-                <Card headerText={cardData.headerText} key={key} isGuardian />
+                <Card headerText={cardData.headerText} key={key} />
               ))}
             </div>
           </div>

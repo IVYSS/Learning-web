@@ -1,3 +1,5 @@
+"use client";
+
 import { FcGoogleIcon } from "@/src/components/icons/icon";
 import Link from "next/link";
 import { mockIconButton } from "@/src/api/mockDataHomepage";
