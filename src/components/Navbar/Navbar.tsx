@@ -1,21 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NavbarInterface } from "./interface";
 
-export function Navbar({ tab }: { tab: string[] }) {
+export function Navbar({ tabs = [] }: NavbarInterface) {
   return (
     <div>
       <div className="sticky flex justify-center text-center items-center px-6  w-full  h-12.5 border-b border-white-3 bg-white">
         <div className="h-full items-center justify-center object-center flex gap-6">
-          <Image
+          {/* <Image
             width={50}
             height={50}
             src={"https://media.geeksforgeeks.org/gfg-gg-logo.svg"}
             alt="logo"
-          />
+          /> */}
 
           <input
             className="w-62 border rounded-3xl border-green-2 h-9.25 p-2.5"
             placeholder="Search.."
+            suppressHydrationWarning
           />
         </div>
         <ul className="flex flex-2 gap-10 pl-50">
@@ -37,7 +39,7 @@ export function Navbar({ tab }: { tab: string[] }) {
         </ul>
       </div>
       <div className="flex text-center justify-center text-[11px]">
-        {tab.map((tab, id) => (
+        {tabs.map((tab, id) => (
           <Link
             href={"/login"}
             className="bg-white p-[10px] mr-[15px] hover:text-green"

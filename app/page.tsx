@@ -6,14 +6,22 @@ import {
   exploreDataMock,
 } from "@/src/api/mockDataHomepage";
 import Card from "@/src/components/Card/Card";
+import CardDetail from "@/src/components/CardDetail/CardDetail";
 import { ArrowRoundForwardIcon } from "@/src/components/icons/icon";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Home() {
   const [search, setSearch] = useState("");
+  const { data, error, isLoading } = useSWR(
+    "https://pokeapi.co/api/v2/pokemon/",
+    fetcher,
+  );
 
-  useEffect(() => {}, []);
+  console.log("API Data:", data);
 
   return (
     <div className=" bg-linear-to-t from-white to-green-4">
@@ -22,6 +30,22 @@ export default function Home() {
           <div className="text-[40px] justify-center items-center text-center w-full font-bold font-nunito py-7">
             Hello, What Do You Want To Learn?
           </div>
+
+          {data && (
+            <div className="text-green-600 font-bold mb-4 flex flex-col items-center">
+              Pokémon from API:
+              <div className="flex flex-wrap gap-2 mt-2 font-normal text-black justify-center">
+                {data.results.slice(0, 5).map((p: any) => (
+                  <span
+                    key={p.name}
+                    className="bg-white border border-black-5 rounded px-3 py-1 capitalize"
+                  >
+                    {p.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           <input
             placeholder="Geeksforgeeks"
@@ -35,16 +59,17 @@ export default function Home() {
               setSearch(e.target.value);
               console.log(e.target.value);
             }}
+            suppressHydrationWarning
           />
 
           <div className="flex gap-[14px]  font-thin text-sm">
-            {buttonDataMock.map((button, key) => (
+            {buttonDataMock.map((item, key) => (
               <Link
                 key={key}
-                href={button.src}
+                href={item.src}
                 className="px-[8px] h-8 flex justify-center align-center rounded-sm border border-black-5 first:bg-green-2 first:text-white-4 pt-1 "
               >
-                {button.name}
+                {item.name}
               </Link>
             ))}
           </div>
@@ -72,7 +97,17 @@ export default function Home() {
           </Link>
 
           <div className="w-full">
-            <p className="text-[24px] font-nunito font-bold">Courses</p>
+            <p className="text-[24px] font-nunito font-bold mb-[24px]">
+              Courses
+            </p>
+            <div className="grid grid-cols-3 gap-[32px] ">
+              <CardDetail />
+              <CardDetail />
+              <CardDetail />
+              <CardDetail />
+              <CardDetail />
+              <CardDetail />
+            </div>
           </div>
 
           <div className="w-full">

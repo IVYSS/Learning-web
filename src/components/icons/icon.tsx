@@ -8,6 +8,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaOpenid } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { FaSignal } from "react-icons/fa6";
+import { FaArrowTrendUp } from "react-icons/fa6";
 
 const Svg = (
   SvgComponent: FC<SVGProps<SVGSVGElement>>,
@@ -32,3 +34,5 @@ export const FaLinkedinIcon = Svg(FaLinkedin);
 export const FaGithubIcon = Svg(FaGithub);
 export const FaOpenidIcon = Svg(FaOpenid);
 export const ArrowRoundForwardIcon = Svg(IoIosArrowRoundForward);
+export const FaSignalIcon = Svg(FaSignal);
+export const FaArrowTrendUpIcon = Svg(FaArrowTrendUp);
