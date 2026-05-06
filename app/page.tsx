@@ -101,12 +101,13 @@ export default function Home() {
               Courses
             </p>
             <div className="grid grid-cols-3 gap-[32px] ">
-              <CardDetail />
-              <CardDetail />
-              <CardDetail />
-              <CardDetail />
-              <CardDetail />
-              <CardDetail />
+              <CardDetail
+                image=""
+                rate={5}
+                title="Font-end developer Font-end developer Font-end developer Font-end developer Font-end developer"
+                interestNumber={20000}
+                levelDetail="Beginner"
+              />
             </div>
           </div>
 
