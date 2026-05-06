@@ -1,7 +1,7 @@
-import { Navbar } from "@/src/components/Navbar";
 import { Nunito, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import { mockTabHome } from "@/src/api/mockDataHomepage";
+import { Footer } from "./Footer";
+// import { Navbar } from "@/src/components/Navbar";
 
 // Configure Nunito
 const nunito = Nunito({
@@ -23,10 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${nunito.variable} ${sourceSans3.variable}`}>
-        <Navbar tab={mockTabHome} />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${nunito.variable} ${sourceSans3.variable}`}
+        suppressHydrationWarning
+      >
+        {/* <Navbar tab={mockTabHome} /> */}
         {children}
+        <Footer />
       </body>
     </html>
   );
