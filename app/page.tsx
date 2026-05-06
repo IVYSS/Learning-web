@@ -21,8 +21,6 @@ export default function Home() {
     fetcher,
   );
 
-  console.log("API Data:", data);
-
   return (
     <div className=" bg-linear-to-t from-white to-green-4">
       <main>
