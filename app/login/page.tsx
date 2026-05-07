@@ -2,7 +2,7 @@
 
 import { FcGoogleIcon } from "@/src/components/icons/icon";
 import Link from "next/link";
-import { mockIconButton } from "@/src/api/mockDataHomepage";
+import { mockIconButton } from "@/src/lib/api/mockDataHomepage";
 
 export default function login() {
   return (

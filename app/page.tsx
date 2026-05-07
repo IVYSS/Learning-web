@@ -4,7 +4,7 @@ import {
   buttonDataMock,
   cardDataMock,
   exploreDataMock,
-} from "@/src/api/mockDataHomepage";
+} from "@/src/lib/api/mockDataHomepage";
 import Card from "@/src/components/Card/Card";
 import CardDetail from "@/src/components/CardDetail/CardDetail";
 import { ArrowRoundForwardIcon } from "@/src/components/icons/icon";
