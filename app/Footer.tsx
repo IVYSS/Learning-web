@@ -1,6 +1,6 @@
 "use client";
 
-import { footerMockData } from "@/src/api/mockDataHomepage";
+import { footerMockData } from "@/src/lib/api/mockDataHomepage";
 import {
   FaFacebookIcon,
   FaInstagramIcon,

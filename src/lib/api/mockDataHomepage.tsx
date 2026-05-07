@@ -3,7 +3,7 @@ import {
   FaFacebookIcon,
   FaGithubIcon,
   FaLinkedinIcon,
-} from "../components/icons/icon";
+} from "../../components/icons/icon";
 import { FaOpenid } from "react-icons/fa";
 
 export const mockTabHome: string[] = [
