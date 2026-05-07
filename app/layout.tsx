@@ -1,7 +1,5 @@
-import { Navbar } from "@/src/components/Navbar/Navbar";
 import { Nunito, Source_Sans_3 } from "next/font/google";
 import { Footer } from "./Footer";
-// import { Navbar } from "@/src/components/Navbar";
 import "./globals.css";
 
 // Configure Nunito
@@ -26,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunito.variable} ${sourceSans3.variable}`}>
-        {/* <Navbar tabs={mockTabHome} /> */}
         {children}
         <Footer />
       </body>
