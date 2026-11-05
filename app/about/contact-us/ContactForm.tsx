@@ -15,7 +15,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-md">
+    <div className="flex flex-col gap-4 w-full max-w-md ">
       <h2 className="text-base font-semibold">Feedback and Queries</h2>
 
       <div className="flex flex-col gap-1">
@@ -48,7 +48,6 @@ export function ContactForm() {
         />
       </div>
 
-
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-700">Contact Number</label>
         <input
@@ -59,7 +58,6 @@ export function ContactForm() {
           className="border border-gray-300 rounded px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-gray-400"
         />
       </div>
-
 
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-700">

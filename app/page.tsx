@@ -93,9 +93,18 @@ export default function Home() {
           </Link>
 
           <div className="w-full">
-            <p className="text-[24px] font-nunito font-bold mb-[24px]">
-              Courses
-            </p>
+            <div className="flex justify-between items-center">
+              <p className="text-[24px] font-nunito font-bold mb-[24px]">
+                Courses
+              </p>
+              <Link
+                href={""}
+                about="View all"
+                className="text-black-3 text-[14px] border p-2 border-black-5 rounded-3xl hover:border-green"
+              >
+                View all
+              </Link>
+            </div>
             <div className="grid grid-cols-3 gap-[32px] ">
               <CardDetail
                 image=""
