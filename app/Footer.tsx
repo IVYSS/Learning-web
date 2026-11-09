@@ -1,58 +1,18 @@
 "use client";
 
 import { footerMockData } from "@/src/lib/api/mockDataHomepage";
-import {
-  FaFacebookIcon,
-  FaInstagramIcon,
-  FaLinkedinIcon,
-  FaXIcon,
-  FaYoutubeIcon,
-  TfiLocationPinIcon,
-} from "@/src/components/icons/icon";
+import { TfiLocationPinIcon } from "@/src/components/icons/icon";
 import Image from "next/image";
 import { redirect, RedirectType } from "next/navigation";
 
 export function Footer() {
-  const iconFooter = [
-    {
-      icon: <FaLinkedinIcon className="w-[42px] h-[24px] text-white" />,
-      hoverColor: "#3498db",
-      patch: "https://www.linkedin.com/company/geeksforgeeks-learn-to-code/",
-    },
-    {
-      icon: <FaInstagramIcon className="w-[42px] h-[24px] text-white" />,
-      hoverColor: "#ff2d55",
-      patch: "https://www.instagram.com/geeks_for_geeks/",
-    },
-    {
-      icon: <FaXIcon className="w-[42px] h-[24px] text-white" />,
-      hoverColor: "#000",
-      patch: "https://x.com/geeksforgeeks",
-    },
-    {
-      icon: <FaFacebookIcon className="w-[42px] h-[24px] text-white" />,
-      hoverColor: "#003a78",
-      patch: "https://www.facebook.com/geeksforgeeks.org/",
-    },
-    {
-      icon: <FaYoutubeIcon className="w-[42px] h-[24px] text-white" />,
-      hoverColor: "#e74d3c",
-      patch: "https://www.youtube.com/geeksforgeeksvideos",
-    },
-  ];
-
   return (
-    <div className="w-full text-black-5 text-[16px]">
+    <div className="w-full  text-[16px] bg-[#fffce1]">
       <div className=" border-t border-black-5 font-nunito px-10 pt-10 grid grid-cols-8 gap-2.5">
         <div className="col-span-2">
-          <Image
-            width={230}
-            height={32}
-            alt="footer"
-            about=""
-            src={"/gfgFooterLogo.png"}
-          />
-
+          <p className="text-[28px] font-bold">
+            Keep in the loop with the GSAP® newsletter.
+          </p>
           <div className="mt-2 flex flex-col gap-3">
             <div>
               <h3 className="font-bold text-[15px] mb-1.5 flex items-center gap-1.5">
@@ -96,22 +56,6 @@ export function Footer() {
       </div>
 
       <div className="flex gap-2 px-10 py-5">
-        {iconFooter.map((icon, key) => (
-          <a
-            key={key}
-            target="_blank"
-            href={icon.patch}
-            className="rounded-3xl bg-black-6 w-[42px] h-[42px] text-center flex justify-center items-center "
-            style={{ "--hover-color": icon.hoverColor } as React.CSSProperties}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.background = icon.hoverColor)
-            }
-            onMouseLeave={(e) => (e.currentTarget.style.background = "")}
-          >
-            {icon.icon}
-          </a>
-        ))}
-
         <div
           className="flex gap-2 h-[30px] justify-center items-center pt-[10px] pl-[20px] cursor-pointer"
           onClick={() => {
@@ -136,8 +80,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t pl-10 py-2">
-        @GeeksforGeeks, Sanchhaya Education Private Limited, All rights reserved
+      <div className="px-[80px] py-[56px] py-2 flex w-full justify-between items-center">
+        <p>©2026 GSAP - A Webflow Product. All rights reserved.</p>
+        <p>IVY</p>
+
+        <p>Privacy Policy. Terms of useSWR </p>
       </div>
     </div>
   );

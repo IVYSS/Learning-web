@@ -1,54 +1,91 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { NavbarInterface } from "./interface";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-export function Navbar({ tabs = [] }: NavbarInterface) {
+export function Navbar() {
+  const navItems = [{ name: "Tools", href: "/tools" }];
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+
+  const { contextSafe } = useGSAP({ scope: buttonRef });
+
+  const handleMouseMove = contextSafe(
+    // eslint-disable-next-line react-hooks/refs
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (!buttonRef.current) return;
+
+      const { clientX, clientY } = e;
+      const { height, width, left, top } =
+        buttonRef.current.getBoundingClientRect();
+
+      // Calculate distance from center of the button
+      const x = clientX - (left + width / 2);
+      const y = clientY - (top + height / 2);
+
+      // Move the button housing
+      gsap.to(buttonRef.current, {
+        x: x * 0.3,
+        y: y * 0.3,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Parallax effect on the text (moves slightly less than the button)
+      gsap.to(textRef.current, {
+        x: x * 0.15,
+        y: y * 0.15,
+        duration: 1,
+        ease: "power3.out",
+      });
+    },
+  );
+
+  // eslint-disable-next-line react-hooks/refs
+  const handleMouseLeave = contextSafe(() => {
+    // Snap back to original position using an elastic ease
+    gsap.to([buttonRef.current, textRef.current], {
+      x: 0,
+      y: 0,
+      duration: 1,
+      ease: "elastic.out(1, 0.3)",
+    });
+  });
+
   return (
-    <div>
-      <div className="sticky flex justify-center text-center items-center px-6  w-full  h-12.5 border-b border-white-3 bg-white">
-        <div className="h-full items-center justify-center object-center flex gap-6">
-          {/* <Image
-            width={50}
-            height={50}
-            src={"https://media.geeksforgeeks.org/gfg-gg-logo.svg"}
-            alt="logo"
-          /> */}
-
-          {/* <input
-            className="w-62 border rounded-3xl border-green-2 h-9.25 p-2.5"
-            placeholder="Search.."
-          /> */}
-        </div>
-        <div className="flex flex-2 gap-10 pl-50">
-          <div>
-            <p>Courses</p>
-          </div>
-          <div>
-            <p>Tutorials</p>
-          </div>
-          <div>
-            <p>Interview Prep</p>
-          </div>
-        </div>
-        <div className="flex-end flex gap-3 h-full  text-center justify-center items-center ">
-          <div className="rounded-4xl bg-white-3 w-9 h-9 p-2 text-black">i</div>
-          <div className="bg-black text-white rounded-md h-9.25 w-18.25  p-2 text-[14px]">
-            <Link href={"/login"}>Sign In</Link>
-          </div>
-        </div>
+    <div className="mx-10 h-20 bg-black flex  items-center justify-between gap-5 px-5 border-b border-b-black-4">
+      <div className="flex gap-5">
+        <div>ICON</div>
+        <li className="gap-5 flex text-black-7 ">
+          {navItems.map((item, id) => (
+            <Link
+              key={id}
+              href={item.href}
+              about=""
+              className="hover:text-white pointer"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </li>
       </div>
-      <div className="flex text-center justify-center text-[11px]">
-        {tabs.map((tab, id) => (
-          <Link
-            href={"/login"}
-            className="bg-white p-[10px] mr-[15px] hover:text-green"
-            key={id}
+      <div>
+        <button
+          ref={buttonRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className={`group relative flex h-16 w-48 items-center justify-center rounded-full bg-zinc-900 text-white shadow-md transition-colors hover:bg-zinc-800`}
+        >
+          <span
+            ref={textRef}
+            className="pointer-events-none relative z-10 text-sm font-medium tracking-wide"
           >
-            <p>{tab}</p>
-          </Link>
-        ))}
+            Login/Create Account
+          </span>
+        </button>
       </div>
     </div>
   );

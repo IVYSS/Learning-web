@@ -1,5 +1,6 @@
 import { Nunito, Source_Sans_3 } from "next/font/google";
 import { Footer } from "./Footer";
+
 import "./globals.css";
 
 // Configure Nunito

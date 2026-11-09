@@ -42,21 +42,6 @@ export const mockIconButton: Array<socialButtonType> = [
   },
 ];
 
-export const buttonDataMock = [
-  {
-    name: "DSA Online",
-    src: "",
-  },
-  {
-    name: "DS, ML & AI",
-    src: "",
-  },
-  {
-    name: "LLD & HLD",
-    src: "",
-  },
-];
-
 export const cardDataMock = [
   {
     headerText: "Data Structure and Algorithms",
@@ -155,54 +140,6 @@ export const footerMockData = [
       { name: "Job-A-Thon", patch: "/" },
       { name: "Blogs", patch: "/" },
       { name: "Nation Skill Up", patch: "/" },
-    ],
-  },
-  {
-    header: "Tutorials",
-    lists: [
-      { name: "programming Languages", patch: "/" },
-      { name: "DSA", patch: "/" },
-      { name: "Web Technology", patch: "/" },
-      { name: "AI, ML & Data Science", patch: "/" },
-      { name: "DevOps", patch: "/" },
-      { name: "CS Core Subjects", patch: "/" },
-      { name: "Interview Preparation", patch: "/" },
-      { name: "Software and Tools", patch: "/" },
-    ],
-  },
-  {
-    header: "Courses",
-    lists: [
-      { name: "ML and Data Science", patch: "/" },
-      { name: "DSA and Placements", patch: "/" },
-      { name: "Web Development", patch: "/" },
-      { name: "Programming Languages", patch: "/" },
-      { name: "DevOps & Cloud", patch: "/" },
-      { name: "GATE", patch: "/" },
-      { name: "Trending Technologies", patch: "/" },
-    ],
-  },
-  {
-    header: "Videos",
-    lists: [
-      { name: "DSA", patch: "/about" },
-      { name: "Python", patch: "/about" },
-      { name: "Java", patch: "/about" },
-      { name: "C++", patch: "/about" },
-      { name: "Web Development", patch: "/about" },
-      { name: "Data Science", patch: "/about" },
-      { name: "CS Subjects", patch: "/about" },
-    ],
-  },
-
-  {
-    header: "Preparation Corner",
-    lists: [
-      { name: "Interview Corner", patch: "/about" },
-      { name: "Aptitude", patch: "/about" },
-      { name: "Puzzles", patch: "/about" },
-      { name: "GfG 160", patch: "/about" },
-      { name: "System Design", patch: "/about" },
     ],
   },
 ];
